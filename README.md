@@ -1,1 +1,1 @@
-# alx-system_engineering-devops
+This is about ALX Tech school project
