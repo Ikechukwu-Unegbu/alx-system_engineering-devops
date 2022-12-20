@@ -15,7 +15,7 @@ echo "
    listen load_balancer
    bind *:80
    mode http
-   balance roundrobi
+   balance roundrobin
    option httpclose
    option forwardfor
    server 57528-web-01  18.235.255.74:80 check
