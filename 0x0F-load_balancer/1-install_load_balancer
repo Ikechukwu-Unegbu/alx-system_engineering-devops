@@ -15,11 +15,11 @@ echo "
    listen load_balancer
    bind *:80
    mode http
-   balance roundrobin
+   balance roundrobi
    option httpclose
    option forwardfor
-   server 57528-web-01 check
-   server 57528-web-02 check
+   server 57528-web-01  18.235.255.74:80 check
+   server 57528-web-02 54.90.12.111:80 check
 " >> /etc/haproxy/haproxy.cfg
 
 service haproxy start
