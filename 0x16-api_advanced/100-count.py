@@ -7,13 +7,13 @@ def count_words(subreddit, word_list, instances={}, after="", count=0):
     """Prints counts of given words found in hot posts of a given subreddit.
 
     Args:
-        subreddit (str): Subreddit to search.
-        word_list (list): List of words to search for in post titles.
-        instances (obj): Key/value pairs of words.
-        after (str): Parameter for the next page of the API results.
-        count (int): Parameter of results matched so far.
+        subreddit (str): The subreddit to search.
+        word_list (list): The list of words to search for in post titles.
+        instances (obj): Key/value pairs of words/counts.
+        after (str): The parameter for the next page of the API results.
+        count (int): The parameter of results matched thus far.
     """
-    uri = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
         "User-Agent": "linux:0x16.api.advanced:v1.0.0"
     }
@@ -22,11 +22,11 @@ def count_words(subreddit, word_list, instances={}, after="", count=0):
         "count": count,
         "limit": 100
     }
-    res = requests.get(uri, headers=headers, params=params,
+    response = requests.get(url, headers=headers, params=params,
                             allow_redirects=False)
     try:
-        results = res.json()
-        if res.status_code == 404:
+        results = response.json()
+        if response.status_code == 404:
             raise Exception
     except Exception:
         print("")
